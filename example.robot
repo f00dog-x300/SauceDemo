@@ -9,17 +9,20 @@ ${URL}=           https://www.saucedemo.com/index.html
 ${Chrome Path}=    venv/Scripts/chromedriver.exe
 
 *** Test Cases ***
-DMCD-2891: User is able to log in Sauce Demo Site
+User is able to log in Sauce Demo Site with standard user
     [Documentation]    Making sure user can access Sauce Demo site
-    Log To Console    Starting Test
     Enter Username    standard_user
     Enter Password    secret_sauce
     Click Submit
-    Sleep    5sec    reason=To see if opening browser works
+    # actual test
     ${current title}=    Get Title
     ${current url}=    Get Location
     Should Be Equal    ${current title}    Swag Labs
     Should Be Equal    ${current url}    https://www.saucedemo.com/inventory.html
+
+User sees error message when logging in with Locked User
+    [Documentation]    Locked user shows error message with sad face
+
 
 *** Keywords ***
 Go to Sauce Demo Site
