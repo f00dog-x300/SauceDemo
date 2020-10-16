@@ -2,6 +2,7 @@
 Documentation     Example test
 Library           SeleniumLibrary
 Suite Setup       Go to Sauce Demo Site
+Test Teardown     Log out user
 Suite Teardown    Close All Browsers
 
 *** Variables ***
@@ -22,7 +23,10 @@ User is able to log in Sauce Demo Site with standard user
 
 User sees error message when logging in with Locked User
     [Documentation]    Locked user shows error message with sad face
-
+    Enter Username    locked_out_user
+    Enter Password    secret_sauce
+    # actual test
+    Should Contain    xpath:h3    Sorry, this user has been locked out.
 
 *** Keywords ***
 Go to Sauce Demo Site
@@ -42,3 +46,7 @@ Enter Password
 Click Submit
     [Documentation]    Clicks on submit button
     Click Button    login-button
+
+Log out user
+    [Documentation]    Used to log out user
+	
