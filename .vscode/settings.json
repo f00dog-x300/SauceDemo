@@ -1,4 +1,10 @@
 {
 
 	"files.autoSave": "afterDelay",
+	"python.pythonPath": "venv\\Scripts\\python.exe",
+	"robot.pythonpath": [
+		"venv\\Lib\\site-packages",
+		"venv\\Scripts\\python.exe"
+	],
+	"robot.language-server.python": "C:\\Users\\klao\\Documents\\Personal\\.Scratch\\SauceDemo\\venv\\Scripts\\python.exe",
 }
